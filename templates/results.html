@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	  <title>Your Who To Follow Recommendations</title>
+
+    <!-- Bootstrap Core CSS with Twitter Classes-->
+    <link href="static/css/results.css" rel="stylesheet">
+
+</head>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+ 
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+ 
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
+<body bgcolor = 'c0deed'>
+<table width="100%" cellpadding='10'>
+<tr>
+	<td width='25%' valign='top'>
+		<h3><b>Who To Follow</b></h3>
+		<p>
+			{% for key, value in handle_output.items() %}
+			<a href={{value}} target="_blank">@{{key}}</a>
+			<br>
+			{% endfor %}
+		</p>
+		
+	</p>
+	</td>
+	<td width='75%'>
+		{% for item in tweet_output %}
+		<blockquote class="twitter-tweet"
+		  data-link-color="#55acee" lang="en">
+		<p lang="en"></p>
+		<a href={{item}}></a>
+	</blockquote>
+	{% endfor %}
+	</td>
+</tr>
+</table>
+</body>
+
+</html>
